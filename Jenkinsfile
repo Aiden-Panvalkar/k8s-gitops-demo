@@ -5,11 +5,12 @@ pipeline {
         KUBECONFIG = '/root/.kube/config'
     }
 
-    stage('Checkout') {
-    steps {
-        git branch: 'main', url: 'https://github.com/aiden-panvalkar/k8s-gitops-demo.git'
-    }
-}
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aiden-panvalkar/k8s-gitops-demo.git'
+            }
+        }
 
         stage('Deploy to Kubernetes') {
             steps {
